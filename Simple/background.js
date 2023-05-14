@@ -1,12 +1,17 @@
+
+let alertsOn = true;
+
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-    if (request.wordFound) {
+    if (request.wordFound && alertsOn) {
         let notificationOptions = {
             type: 'basic',
             iconUrl: 'images/icon48.png',
             title: 'Emergency!',
-            message: 'Слово "Emergency" найдено на странице!'
+            message: 'Get "Emergency" tiket!!'
         };
+
         chrome.notifications.create('wordFound', notificationOptions);
+
         chrome.scripting.executeScript({
             target: { tabId: sender.tab.id },
             func: function() {
@@ -14,5 +19,15 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
                 audio.play();
             }
         });
+    } else if (request.stopAlerts) {
+        alertsOn = false;
+    } else if (request.startAlerts) {
+        alertsOn = true;
+    } else if (request.getStatus) {
+        sendResponse({alertsOn: alertsOn});
     }
 });
+
+
+
+

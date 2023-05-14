@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
-  "name": "Word Detection",
-  "version": "1.0",
+  "name": "Simple",
+  "version": "3.3",
   "permissions": [
     "activeTab",
     "scripting",
