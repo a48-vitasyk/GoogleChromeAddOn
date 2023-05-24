@@ -1,4 +1,3 @@
-// Работает для 3.2
 let wordFound = false;
 let alerting = false;
 
@@ -34,10 +33,11 @@ setInterval(() => {
     if (wordFound && alerting) {
         chrome.runtime.sendMessage({wordFound: true}, function(response) {
             if (chrome.runtime.lastError) {
-// Обработка ошибки
+                // Обработка ошибки
                 console.log(chrome.runtime.lastError.message);
             } else {
-// Обработка успешной отправки сообщения
+                // Обработка успешной отправки сообщения
+                wordFound = false;  // сброс после отправки сообщения
             }
         });
     }
