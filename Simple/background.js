@@ -1,4 +1,3 @@
-
 let alertsOn = true;
 
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
@@ -6,8 +5,8 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
         let notificationOptions = {
             type: 'basic',
             iconUrl: 'images/icon48.png',
-            title: 'Emergency!',
-            message: 'Get "Emergency" tiket!!'
+            title: 'Emergency SLA!',
+            message: 'Get "Emergency SLA" tiket!!'
         };
 
         chrome.notifications.create('wordFound', notificationOptions);
@@ -27,7 +26,3 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
         sendResponse({alertsOn: alertsOn});
     }
 });
-
-
-
-

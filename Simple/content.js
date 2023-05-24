@@ -2,7 +2,7 @@
 let wordFound = false;
 let alerting = false;
 
-const targetWord = 'Emergency';
+const targetWord = 'Emergency SLA';
 
 const checkForWord = (node) => {
     if (node.nodeType === Node.TEXT_NODE && node.nodeValue.includes(targetWord)) {
